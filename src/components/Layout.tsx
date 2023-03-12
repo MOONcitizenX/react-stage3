@@ -7,9 +7,9 @@ export default class Layout extends Component {
     return (
       <>
         <Header />
-        <div className="container">
+        <main className="container">
           <Outlet />
-        </div>
+        </main>
       </>
     );
   }
