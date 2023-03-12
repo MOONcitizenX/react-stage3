@@ -1,0 +1,10 @@
+.error-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span404 {
+  font-size: 3.5rem;
+  color: var(--dark-red-color);
+}
