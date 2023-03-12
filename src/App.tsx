@@ -10,11 +10,13 @@ export default class App extends Component {
     return (
       <>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        </div>
       </>
     );
   }
