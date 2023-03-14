@@ -5,9 +5,11 @@ interface SearchBarState {
   searchValue: string;
 }
 
-export default class SearchBar extends Component<SearchBarState> {
+const LSName = 'productSearchValue';
+
+export default class SearchBar extends Component<unknown, SearchBarState> {
   state = {
-    searchValue: localStorage.getItem('productSearchValue') || '',
+    searchValue: localStorage.getItem(LSName) || '',
   };
 
   handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,11 +18,11 @@ export default class SearchBar extends Component<SearchBarState> {
   };
 
   handleRefresh = () => {
-    localStorage.setItem('productSearchValue', this.state.searchValue);
+    localStorage.setItem(LSName, this.state.searchValue);
   };
 
   componentDidMount(): void {
-    const val = localStorage.getItem('productSearchValue');
+    const val = localStorage.getItem(LSName);
     if (val) {
       this.setState({ searchValue: val });
     }
@@ -28,7 +30,7 @@ export default class SearchBar extends Component<SearchBarState> {
   }
 
   componentWillUnmount(): void {
-    localStorage.setItem('productSearchValue', this.state.searchValue);
+    localStorage.setItem(LSName, this.state.searchValue);
     window.removeEventListener('beforeunload', this.handleRefresh);
   }
 
