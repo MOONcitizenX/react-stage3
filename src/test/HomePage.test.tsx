@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import products from '../data/products.json';
 import HomePage from '../pages/HomePage';
 
 describe('CardList tests', () => {
@@ -45,7 +44,6 @@ export class LocalStorageMock {
 describe('searchBar', () => {
   const user = userEvent.setup();
   const testText = 'test data';
-  const LSKey = 'productSearchValue';
 
   beforeEach(() => {
     vi.stubGlobal('localStorage', new LocalStorageMock());
@@ -77,7 +75,7 @@ describe('rerender', () => {
   });
   it('writes value to localStorage on refresh', async () => {
     vi.stubGlobal('localStorage', new LocalStorageMock());
-    const { rerender } = render(<HomePage />);
+    render(<HomePage />);
     const input = screen.getByRole('searchbox');
     await user.type(input, testText);
     window.dispatchEvent(new Event('beforeunload'));
