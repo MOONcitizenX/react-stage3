@@ -10,7 +10,7 @@ interface CardProps {
 export default class Card extends Component<CardProps> {
   render() {
     return (
-      <div className={s.cardWrapperTable}>
+      <div className={s.cardWrapperTable} data-testid={'individualCard'}>
         <img
           src={this.props.product.preview || noImage}
           alt={this.props.product.title}
