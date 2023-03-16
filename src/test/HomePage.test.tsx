@@ -65,39 +65,31 @@ describe('rerender', () => {
   const testText = 'test data';
   const LSKey = 'productSearchValue';
 
-  it('writes value to localStorage on unMount', async () => {
-    vi.stubGlobal('localStorage', new LocalStorageMock());
-    const { unmount } = render(<HomePage />);
-    const input = screen.getByRole('searchbox');
-    await user.type(input, testText);
-    unmount();
-    expect(localStorage.getItem(LSKey)).toBe(testText);
-    vi.unstubAllGlobals();
-  });
-  it('writes value to localStorage on refresh', async () => {
-    vi.stubGlobal('localStorage', new LocalStorageMock());
-    render(<HomePage />);
-    const input = screen.getByRole('searchbox');
-    await user.type(input, testText);
-    window.dispatchEvent(new Event('beforeunload'));
-    expect(localStorage.getItem(LSKey)).toBe(testText);
-    vi.unstubAllGlobals();
-  });
-});
-
-describe('gets data from localStorage', () => {
-  const testText = 'test data';
-  const LSKey = 'productSearchValue';
   beforeEach(() => {
     vi.stubGlobal('localStorage', new LocalStorageMock());
-    localStorage.setItem(LSKey, testText);
-    render(<HomePage />);
   });
 
   afterEach(() => {
     vi.unstubAllGlobals();
   });
+
+  it('writes value to localStorage on unMount', async () => {
+    const { unmount } = render(<HomePage />);
+    const input = screen.getByRole('searchbox');
+    await user.type(input, testText);
+    unmount();
+    expect(localStorage.getItem(LSKey)).toBe(testText);
+  });
+  it('writes value to localStorage on refresh', async () => {
+    render(<HomePage />);
+    const input = screen.getByRole('searchbox');
+    await user.type(input, testText);
+    window.dispatchEvent(new Event('beforeunload'));
+    expect(localStorage.getItem(LSKey)).toBe(testText);
+  });
   it('takes value from localStorage', async () => {
+    localStorage.setItem(LSKey, testText);
+    render(<HomePage />);
     const input = screen.getByRole('searchbox');
     expect(input).toHaveValue(testText);
   });
