@@ -3,13 +3,14 @@ import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import HomePage from '../pages/HomePage';
+import products from '../data/products.json';
 
 describe('CardList tests', () => {
   beforeEach(() => {
     render(<HomePage />);
   });
   it('should render all cards', () => {
-    expect(screen.getAllByTestId('individualCard')).toHaveLength(15);
+    expect(screen.getAllByTestId('individualCard')).toHaveLength(products.length);
   });
 });
 
