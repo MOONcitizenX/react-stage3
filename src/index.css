@@ -1,0 +1,45 @@
+:root {
+  --mw: 1200px;
+  --text-color: #333333;
+  --text-secondary-color: #201e3b;
+  --bg-color: #44b76e;
+  --fz: 10px;
+  --dark-red-color: #b63d44;
+}
+
+html {
+  font-size: var(--fz);
+}
+
+body {
+  font-size: 2rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--mw);
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.active {
+  color: #fff;
+  text-decoration: underline;
+}

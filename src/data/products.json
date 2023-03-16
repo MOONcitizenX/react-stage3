@@ -1,0 +1,243 @@
+[
+  {
+    "id": 1,
+    "title": "Батончик с протеином «Мята» Bite",
+    "description": "Bite Мята — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и много протеина. Для оригинального вкуса мы добавили ароматную мяту — в сочетании с абрикосом и миндалем получился насыщенный протеиновый снек, который удобно взять с собой и забыть о голоде на несколько часов!  Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 21,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/1.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/1.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/1-and-6.webp"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Батончик с протеином «Детокс» абрикос-миндаль Bite",
+    "description": "Bite Detox — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин. Миндаль, фундук и абрикос выводят из тела токсины. Кокос снижает уровень холестерина в крови и быстро насыщает энергией. Молотый имбирь — главный помощник в похудении и детоксикации организма. А протеиновый заряд придает сил и укрепляет мышцы! Это очень питательный перекус для здорового питания, с которым детокс пройдет легко и вкусно. Абсолютно натуральный.  Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 43,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/2.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/2.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/2.webp"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Батончик с протеином «Любовь» вишня-миндаль Bite",
+    "description": "Bite Love — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин. Получился вкусный низкокалорийный десерт в удобном формате снека, который можно взять с собой и перекусить до или после тренировки. Сладость спелой вишни и кислинку клюквы дополняют ароматные специи — корица и гвоздика.  Миндаль и фундук добавляют полезных жиров, а растительный протеин насыщает надолго. Диетический вишневый пирог от Bite — любовь с первого перекуса гарантирована! Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 21,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/3.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/3.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/3.webp"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Батончик с протеином «Иммунитет» клюква-тыквенные семечки Bite",
+    "description": "Bite Иммунитет — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин. Питательный и функциональный, протеиновый батончик Bite - идеальный продукт для здорового питания. В нем большое количество клюквы, которая поможет поддержать иммунитет. А тыквенные семечки содержат целый спектр витаминов и минеральных веществ: B1, B6, B12, PP, К, D, А, Е, С, фолиевую кислоту, фосфор, калий и магний. Он укрепит иммунитет, придаст сил и энергии. Возьмите его с собой и витаминный заряд будет обеспечен! Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 59,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/4.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/4.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/4-and-8.webp"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Батончик с протеином «Баланс» кокос-бразильский орех Bite",
+    "description": "Bite Баланс — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин.  Кокос нормализует уровень сахара, поддерживает баланс жидкости в организме и приводит в норму обмен веществ. Бразильский орех на треть состоит из ненасыщенных жирных кислот, содержит селен, фосфор, натрий, калий, кальций, витамины группы B, С, Е. А еще мы добавили щепотку кардамона и растительный протеин — все идеально сбалансировано! Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 53,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/5.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/5.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/5.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/5-1.webp"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Батончик с протеином «Контроль веса» морковь-кешью Bite",
+    "description": "Bite Контроль веса — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин. Если вы следите за фигурой, низкокалорийный снек отлично подойдет для перекуса до или после тренировки. Ведь в нем всего 147 ккал, а сытость он придает на 2-3 часа! В этом Bite много моркови, а еще яблок, тыквенных семечек, орехов и растительного протеина. А еще Bite Контроль веса можно есть даже по вечерам — и ничего, кроме пользы, вам за это не будет!  Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 11,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/6.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/6.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/1-and-6.webp"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Батончик с протеином «Звезда» шоколад-мускатный орех Bite",
+    "description": "Bite Star — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин.  Насыщенный шоколадный вкус в нем отлично сочетается с хрустящим арахисом. Сладкий вкус фиников оттеняет щепотка морской соли и ароматный мускатный орех. А еще, Bite Star — рекордсмен по содержанию растительного протеина! Он отвечает за восстановление мыщц после активного дня и надолго дарит чувство сытости. Съешь Bite на завтрак, подкрепись после тренировки, закинь пару снеков в рюкзак и можешь не переживать на счет вкусного и полезного перекуса — теперь он всегда будет рядом с тобой. Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 14,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/7.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/7.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/7.webp"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Батончик с протеином «Настроение» шоколад Bite",
+    "description": "Bite Настроение — натуральный орехово-фруктовый батончик без сахара. В составе отборные орехи, фрукты, ягоды и протеин.  Рекордсмен по содержанию эндорфинов, протеиновый Bite — это диетический шоколадный десерт без вреда для фигуры.  Он содержит фундук, миндаль, финики и натуральный горький шоколад! К насыщенному орехово-шоколадному вкусу мы добавили пряности: корицу, мускатный орех и гвоздику. Получился классный перекус, чтобы подкрепиться в течение дня и зарядиться положительными эмоциями! Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 4.09,
+    "stock": 67,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/8.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/8.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/4-and-8.webp"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Фруктово-ягодный батончик «Апельсин» Slim Bite",
+    "description": "Низкокалорийные батончики Slim Bite «Апельсин» — это цитрусовый всплеск витаминов и пряные специи для крепкого иммунитета. В них совсем нет добавленного сахара, консервантов, красителей и усилителей вкуса. Зато много натуральных ягод и фруктов, которые помогают поддерживать форму и естественную красоту. И что самое главное — в каждом снеке меньше 100 калорий. Теперь насладиться вкусом можно без вреда для фигуры. Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 2.35,
+    "stock": 75,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/9.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/9.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/9.webp"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Фруктово-ягодный батончик «Матча» Slim Bite",
+    "description": "Низкокалорийные батончики Slim Bite «Матча» — тот случай, когда любимый напиток вдруг превращается в удобный снек! Матча на кокосовом в нашем исполнении — это настоящий зеленый чай из Японии и ароматный кокос. В Slim Bite совсем нет добавленного сахара, консервантов, красителей и усилителей вкуса. Зато много полезных жиров из кокоса и антиоксидантов из зеленого чая, которые ускоряют обмен веществ, помогают поддерживать форму и естественную красоту. И что самое главное — в каждом снеке меньше 100 калорий. Теперь насладиться вкусом можно без вреда для фигуры. Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 2.35,
+    "stock": 1,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/10.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/10.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/10.webp"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Фруктово-ягодный батончик «Двойной шоколад» Slim Bite",
+    "description": "Низкокалорийные батончики Slim Bite «Двойной шоколад» — чемпионы по содержанию эндорфинов для вашего хорошего настроения! Шоколад, кокос и специи идеально сочетаются и придают снекам вкус шоколадного пирога с нежным сливочным оттенком. В них совсем нет добавленного сахара, консервантов, красителей и усилителей вкуса. Зато много натуральных ягод, фруктов и специй, которые помогают поддерживать форму и естественную красоту. И что самое главное — в каждом снеке меньше 100 калорий. Теперь насладиться вкусом можно без вреда для фигуры. Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 2.35,
+    "stock": 18,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/11.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/11.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/11.webp"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Фруктово-ягодный батончик «Кокос» Slim Bite",
+    "description": "Низкокалорийные батончики Slim Bite «Кокос» — это сладкий и сытный перекус с нежным кокосовым вкусом. В них совсем нет добавленного сахара, консервантов, красителей и усилителей вкуса. Зато много, очень много кокоса! Сбалансированный микс из ягод, фруктов и специй помогает поддерживать форму и естественную красоту. И что самое главное — в каждом снеке меньше 100 калорий. Теперь насладиться вкусом можно без вреда для фигуры. Абсолютно натуральный. Без сахара, без глютена. Не содержит ГМО, молоко и сою. Подходит для диабетиков.",
+    "price": 2.35,
+    "stock": 3,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "батончик",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/12.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/12.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/12.webp"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Печенье безглютеновое «Брокколи» Bite",
+    "description": "Детское печенье Biteу с брокколи —  вкусный и полезный перекус. Еще никогда не было так просто уговорить ребенка есть овощи. Печенье с брокколи имеют натуральный овощной вкус, а яблоки и финик придают натуральную сладость. При этом в составе нет добавленного сахара, дрожжей, белой муки, молока и сои. Мы уверены, что оно в разы полезнее и вкуснее обычных сладостей. Печенье обогащено кальцием и витаминами, необходимыми для гармоничного развития ребёнка. Печенье упаковано в интерактивную коробочку с красочными иллюстрациями мира динозавров, а внутри целая коллекция фигурного печенья в виде тропических листьев и динозавров. Главная особенность всех упаковок печенья Bitey — они легко превращаются в игрушки. Для этого надо выдавить картинки и подставку по контуру, соединить — и можно играть! Познаём мир, веселимся и наслаждаемся полезным перекусом вместе с Bitey! Продукт не содержит глютен, сахар, молоко, сою и красители.",
+    "price": 5.75,
+    "stock": 10,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "печенье",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/13.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/13.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/13.webp"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Печенье безглютеновое «Банан» Bite",
+    "description": "Детское печенье Biteу с бананом —  вкусный и полезный перекус. В печенье Bitey нет добавленного сахара, дрожжей, белой муки, молока и сои. Мы уверены, что оно в разы полезнее и вкуснее обычных сладостей. Печенье обогащено кальцием и витаминами, необходимыми для гармоничного развития ребёнка. Печенье упаковано в интерактивную коробочку с красочными иллюстрациями космического приключения, а внутри целая коллекция фигурного печенья в виде ракет, космонавтов и звезд. Главная особенность всех упаковок печенья Bitey — они легко превращаются в игрушки. Для этого надо выдавить картинки и подставку по контуру, соединить — и можно играть! Познаём мир, веселимся и наслаждаемся полезным перекусом вместе с Bitey! Продукт не содержит глютен, сахар, молоко, сою и красители.",
+    "price": 5.75,
+    "stock": 42,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "печенье",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/14.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/14.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/14.webp"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Печенье безглютеновое «Клубника» Bite",
+    "description": "Детское печенье Biteу с клубникой —  вкусный и полезный перекус. В печенье Bitey нет добавленного сахара, дрожжей, белой муки, молока и сои. Мы уверены, что оно в разы полезнее и вкуснее обычных сладостей. Печенье обогащено кальцием и витаминами, необходимыми для гармоничного развития ребёнка. Печенье упаковано в интерактивную коробочку с красочными иллюстрациями подводного мира, а внутри целая коллекция фигурного печенья в виде рыбок, русалок и ракушек. Главная особенность всех упаковок печенья Bitey — они легко превращаются в игрушки. Для этого надо выдавить картинки и подставку по контуру, соединить — и можно играть! Познаём мир, веселимся и наслаждаемся полезным перекусом вместе с Bitey! Продукт не содержит глютен, сахар, молоко, сою и красители.",
+    "price": 5.75,
+    "stock": 51,
+    "brand": "Bite",
+    "category": "Полезные сладости",
+    "catPath": "sweets",
+    "type": "печенье",
+    "preview": "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/small/15.webp",
+    "images": [
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/full/15.webp",
+      "https://raw.githubusercontent.com/mkoroleva5/online-store-content/main/media/artistic/15.webp"
+    ]
+  }
+]
