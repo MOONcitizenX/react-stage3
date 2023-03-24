@@ -1,0 +1,23 @@
+.modal {
+  max-width: 200px;
+  padding: 10px;
+
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+
+  font-size: 1.5rem;
+
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  color: #fff;
+}
+
+.modal-close {
+  all: unset;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #fff;
+  cursor: pointer;
+}

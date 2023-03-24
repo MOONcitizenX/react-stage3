@@ -2,13 +2,19 @@ import React, { Component, createRef } from 'react';
 import { FormFields } from 'pages/FormsPage/FormsPage';
 import { v4 as uuidv4 } from 'uuid';
 import s from './ReportForm.module.css';
+import { validateDate, validateFile, validateName } from 'utils/validators';
 
 interface ReportFormProps {
   onSubmit: (formFields: FormFields) => void;
 }
 
 interface ReportFormState {
-  isValid: boolean;
+  isFirstNameValid: boolean;
+  isLastNameValid: boolean;
+  isDateValid: boolean;
+  isLocationValid: boolean;
+  isInjuriesValid: boolean;
+  isFileValid: boolean;
 }
 
 export default class ReportForm extends Component<ReportFormProps, ReportFormState> {
@@ -32,23 +38,75 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
     this.evidenceRef = createRef();
 
     this.state = {
-      isValid: false,
+      isFirstNameValid: true,
+      isLastNameValid: true,
+      isDateValid: true,
+      isLocationValid: true,
+      isInjuriesValid: true,
+      isFileValid: true,
     };
   }
 
   validateForm = () => {
-    return false;
+    const isFirstNameValid = validateName(this.firstNameRef.current?.value);
+    const isLastNameValid = validateName(this.lastNameRef.current?.value);
+    const isDateValid = validateDate(this.accidentDateRef.current?.value);
+    const isLocationValid = Boolean(this.locationRef.current?.value);
+    const isInjuriesValid =
+      this.humanInjuriesRefYes.current!.checked || this.humanInjuriesRefNo.current!.checked;
+    const noFile = !this.evidenceRef.current?.value;
+    const isFileValid = validateFile(this.evidenceRef.current?.value) || noFile;
+    this.setState({
+      isFirstNameValid,
+      isLastNameValid,
+      isDateValid,
+      isLocationValid,
+      isInjuriesValid,
+      isFileValid,
+    });
+
+    return (
+      isFirstNameValid &&
+      isLastNameValid &&
+      isDateValid &&
+      isLocationValid &&
+      isInjuriesValid &&
+      isFileValid
+    );
+  };
+
+  resetForm = () => {
+    this.firstNameRef.current!.value = '';
+    this.lastNameRef.current!.value = '';
+    this.accidentDateRef.current!.value = '';
+    this.locationRef.current!.value = '';
+    this.isAlienContactRef.current!.checked = false;
+    this.humanInjuriesRefYes.current!.checked = false;
+    this.humanInjuriesRefNo.current!.checked = false;
+    this.evidenceRef.current!.value = '';
   };
 
   handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (this.validateForm()) {
-    } else {
+    const isFormValid = this.validateForm();
+    if (isFormValid) {
+      const formData = {
+        id: uuidv4(),
+        firstName: this.firstNameRef.current!.value,
+        lastName: this.lastNameRef.current!.value,
+        date: this.accidentDateRef.current!.value,
+        location: this.locationRef.current!.value,
+        isAlienContact: this.isAlienContactRef.current!.checked,
+        humanInjuries: this.humanInjuriesRefYes.current!.checked,
+        file: this.evidenceRef.current!.value,
+      };
+      this.props.onSubmit(formData);
+      this.resetForm();
     }
   };
 
   componentDidMount() {
-    console.log(this.firstNameRef.current?.value, 'value');
+    this.firstNameRef.current?.focus();
   }
 
   render() {
@@ -56,38 +114,52 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
       <form onSubmit={this.handleSubmit} className={s.reportForm}>
         <label htmlFor="firstName">
           <span>First name:</span>
-          <input id="firstName" type="text" name="firstName" ref={this.firstNameRef} required />
+          <input id="firstName" type="text" name="firstName" ref={this.firstNameRef} />
         </label>
+        {!this.state.isFirstNameValid && (
+          <p className={s.errorMessage}>
+            First name is required and should be at least 3 characters long and the first letter
+            should be in upper case
+          </p>
+        )}
         <hr />
 
         <label htmlFor="lastName">
           <span>Last name:</span>
-          <input id="lastName" type="text" name="lastName" ref={this.lastNameRef} required />
+          <input id="lastName" type="text" name="lastName" ref={this.lastNameRef} />
         </label>
+        {!this.state.isLastNameValid && (
+          <p className={s.errorMessage}>
+            Last name is required and should be at least 3 characters long and the first letter
+            should be in upper case
+          </p>
+        )}
         <hr />
 
         <label htmlFor="accidentDate">
           <span>Happened at:</span>
-          <input
-            id="accidentDate"
-            type="date"
-            name="accidentDate"
-            ref={this.accidentDateRef}
-            required
-          />
+          <input id="accidentDate" type="date" name="accidentDate" ref={this.accidentDateRef} />
         </label>
+        {!this.state.isDateValid && (
+          <p className={s.errorMessage}>
+            The accident date is required and couldn&apos;t have happened in the future
+          </p>
+        )}
         <hr />
 
         <label htmlFor="location">
           {' '}
           <span>Accident location:</span>
-          <select name="location" id="location" ref={this.locationRef} required>
+          <select name="location" id="location" ref={this.locationRef}>
             <option value="">Choose location</option>
             <option value="Earth">Earth</option>
             <option value="Mars">Mars</option>
             <option value="Venus">Venus</option>
           </select>
         </label>
+        {!this.state.isLocationValid && (
+          <p className={s.errorMessage}>Please, choose the accident location</p>
+        )}
         <hr />
 
         <label htmlFor="isAlienContact">
@@ -105,7 +177,6 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
             name="humanInjuries"
             value="Yes"
             ref={this.humanInjuriesRefYes}
-            required
           />
         </label>
         <label htmlFor="humanInjuriesNo">
@@ -116,17 +187,26 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
             name="humanInjuries"
             value="No"
             ref={this.humanInjuriesRefNo}
-            required
           />
         </label>
+        {!this.state.isInjuriesValid && (
+          <p className={s.errorMessage}>Please, choose one of the options</p>
+        )}
         <hr />
 
         <label htmlFor="evidence">
           <span>Provide evidence:</span>
-          <input type="file" name="evidence" ref={this.evidenceRef} />
+          <input type="file" name="evidence" ref={this.evidenceRef} accept="image/*" />
         </label>
+        {!this.state.isFileValid && (
+          <p className={s.errorMessage}>
+            We only support files with jpeg, jpg, png, svg, gif, webp extensions
+          </p>
+        )}
 
-        <button type="submit">Submit</button>
+        <button type="submit" className={s.submitButton}>
+          Submit
+        </button>
       </form>
     );
   }

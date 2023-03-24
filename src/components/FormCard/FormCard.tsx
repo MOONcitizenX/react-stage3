@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { FormFields } from 'pages/FormsPage/FormsPage';
 
-export default class FormCard extends Component {
+type FormCardProps = Omit<FormFields, 'id'>;
+
+export default class FormCard extends Component<FormCardProps> {
   render() {
     return <div>FormCard</div>;
   }

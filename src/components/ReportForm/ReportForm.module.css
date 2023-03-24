@@ -10,3 +10,21 @@
 .report-form span {
   margin-right: 10px;
 }
+
+.report-form input,
+.report-form select {
+  padding: 5px 0;
+  text-indent: 5px;
+}
+
+.submit-button {
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+.error-message {
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: red;
+}
