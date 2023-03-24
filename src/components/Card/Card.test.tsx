@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it, beforeEach } from 'vitest';
 import Card from 'components/Card/Card';
 
 const product = {

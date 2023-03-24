@@ -16,6 +16,7 @@ export default defineConfig({
       data: path.resolve(__dirname, './src/data'),
       utils: path.resolve(__dirname, './src/utils'),
       constants: path.resolve(__dirname, './src/constants'),
+      test: path.resolve(__dirname, './src/test'),
     },
   },
   server: {

@@ -88,6 +88,7 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
 
   handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
     const isFormValid = this.validateForm();
     if (isFormValid) {
       const formData = {
@@ -98,7 +99,9 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
         location: this.locationRef.current!.value,
         isAlienContact: this.isAlienContactRef.current!.checked,
         humanInjuries: this.humanInjuriesRefYes.current!.checked,
-        file: URL.createObjectURL(this.evidenceRef.current!.files![0]),
+        file: this.evidenceRef.current!.files![0]
+          ? URL.createObjectURL(this.evidenceRef.current!.files![0])
+          : '',
       };
       this.props.onSubmit(formData);
       this.resetForm();
@@ -111,7 +114,7 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className={s.reportForm}>
+      <form onSubmit={this.handleSubmit} className={s.reportForm} aria-label="form">
         <label htmlFor="firstName">
           <span>First name:</span>
           <input id="firstName" type="text" name="firstName" ref={this.firstNameRef} />
@@ -196,7 +199,13 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
 
         <label htmlFor="evidence">
           <span>Provide evidence:</span>
-          <input type="file" name="evidence" ref={this.evidenceRef} accept="image/*" />
+          <input
+            type="file"
+            name="evidence"
+            ref={this.evidenceRef}
+            accept="image/*"
+            data-testid="file-input"
+          />
         </label>
         {!this.state.isFileValid && (
           <p className={s.errorMessage}>

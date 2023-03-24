@@ -10,7 +10,7 @@ export default class FormCard extends Component<FormCardProps> {
       <div className={s.cardWrapper}>
         <h4>Reporter:</h4>
         <p>{this.props.firstName + ' ' + this.props.lastName}</p>
-        <h4>Happened at:</h4>
+        <h4>Date:</h4>
         <p>{this.props.date}</p>
         <h4>Location:</h4>
         <p>{this.props.location}</p>
