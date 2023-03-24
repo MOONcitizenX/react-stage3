@@ -1,5 +1,7 @@
 import React, { Component, createRef } from 'react';
 import { FormFields } from 'pages/FormsPage/FormsPage';
+import { v4 as uuidv4 } from 'uuid';
+import s from './ReportForm.module.css';
 
 interface ReportFormProps {
   onSubmit: (formFields: FormFields) => void;
@@ -45,62 +47,82 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
     }
   };
 
+  componentDidMount() {
+    console.log(this.firstNameRef.current?.value, 'value');
+  }
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={s.reportForm}>
         <label htmlFor="firstName">
-          First name:
-          <input id="firstName" type="text" name="firstName" ref={this.firstNameRef} />
+          <span>First name:</span>
+          <input id="firstName" type="text" name="firstName" ref={this.firstNameRef} required />
         </label>
+        <hr />
 
         <label htmlFor="lastName">
-          Last name:
-          <input id="lastName" type="text" name="lastName" ref={this.lastNameRef} />
+          <span>Last name:</span>
+          <input id="lastName" type="text" name="lastName" ref={this.lastNameRef} required />
         </label>
+        <hr />
 
         <label htmlFor="accidentDate">
-          Happened at:
-          <input id="accidentDate" type="date" name="accidentDate" ref={this.accidentDateRef} />
+          <span>Happened at:</span>
+          <input
+            id="accidentDate"
+            type="date"
+            name="accidentDate"
+            ref={this.accidentDateRef}
+            required
+          />
         </label>
+        <hr />
 
-        <label>
+        <label htmlFor="location">
           {' '}
-          Accident location:
-          <select name="location" id="location" ref={this.locationRef}>
+          <span>Accident location:</span>
+          <select name="location" id="location" ref={this.locationRef} required>
+            <option value="">Choose location</option>
             <option value="Earth">Earth</option>
             <option value="Mars">Mars</option>
             <option value="Venus">Venus</option>
           </select>
         </label>
+        <hr />
 
         <label htmlFor="isAlienContact">
-          Alien contact:
+          <span>Alien contact:</span>
           <input type="checkbox" name="isAlienContact" ref={this.isAlienContactRef} />
         </label>
+        <hr />
 
+        <p>Human injuries: </p>
         <label htmlFor="humanInjuriesYes">
-          Yes
+          <span>Yes</span>
           <input
             id="humanInjuriesYes"
             type="radio"
             name="humanInjuries"
             value="Yes"
             ref={this.humanInjuriesRefYes}
+            required
           />
         </label>
         <label htmlFor="humanInjuriesNo">
-          No
+          <span>No</span>
           <input
             id="humanInjuriesNo"
             type="radio"
             name="humanInjuries"
             value="No"
             ref={this.humanInjuriesRefNo}
+            required
           />
         </label>
+        <hr />
 
         <label htmlFor="evidence">
-          Provide evidence:
+          <span>Provide evidence:</span>
           <input type="file" name="evidence" ref={this.evidenceRef} />
         </label>
 

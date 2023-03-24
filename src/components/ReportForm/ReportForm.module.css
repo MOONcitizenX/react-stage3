@@ -1,0 +1,12 @@
+.report-form {
+  margin: 0 auto;
+
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-form span {
+  margin-right: 10px;
+}
