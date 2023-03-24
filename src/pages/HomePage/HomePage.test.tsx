@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import HomePage from '../pages/HomePage';
-import products from '../data/products.json';
+import HomePage from 'pages/HomePage/HomePage';
+import products from 'data/products.json';
 
 describe('CardList tests', () => {
   beforeEach(() => {
