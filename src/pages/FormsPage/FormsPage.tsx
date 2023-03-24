@@ -23,11 +23,23 @@ interface FormsPageState {
 export default class FormsPage extends Component<unknown, FormsPageState> {
   state: FormsPageState = {
     isPopupOpen: false,
-    reports: [],
+    reports: [
+      {
+        id: '123',
+        firstName: '123123123',
+        lastName: '123123123',
+        date: '123123123',
+        location: '123123123',
+        isAlienContact: true,
+        humanInjuries: true,
+        file: '',
+      },
+    ],
   };
 
   onSubmit = (formData: FormFields) => {
     this.setState((prev) => ({ reports: [...prev.reports, formData], isPopupOpen: true }));
+    console.log(formData.file);
   };
 
   componentDidUpdate() {

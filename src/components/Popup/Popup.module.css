@@ -2,7 +2,7 @@
   max-width: 200px;
   padding: 10px;
 
-  position: absolute;
+  position: fixed;
   left: 10px;
   bottom: 10px;
 

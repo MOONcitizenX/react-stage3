@@ -98,7 +98,7 @@ export default class ReportForm extends Component<ReportFormProps, ReportFormSta
         location: this.locationRef.current!.value,
         isAlienContact: this.isAlienContactRef.current!.checked,
         humanInjuries: this.humanInjuriesRefYes.current!.checked,
-        file: this.evidenceRef.current!.value,
+        file: URL.createObjectURL(this.evidenceRef.current!.files![0]),
       };
       this.props.onSubmit(formData);
       this.resetForm();

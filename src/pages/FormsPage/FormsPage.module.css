@@ -1,0 +1,12 @@
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
