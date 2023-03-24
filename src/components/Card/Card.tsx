@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import s from './Card.module.css';
-import noImage from '../assets/images/default.jpg';
 import { Product } from 'data/products';
+import noImage from 'assets/images/default.jpg';
 
 interface CardProps {
   product: Product;

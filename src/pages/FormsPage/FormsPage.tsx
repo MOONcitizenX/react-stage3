@@ -1,4 +1,4 @@
-import ReportForm from '../components/ReportForm';
+import ReportForm from 'components/ReportForm/ReportForm';
 import React, { Component } from 'react';
 import s from './FormsPage.module.css';
 

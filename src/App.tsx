@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import AboutUsPage from './pages/AboutUsPage';
-import HomePage from './pages/HomePage';
-import Page404 from './pages/Page404';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/Layout';
-import FormsPage from './pages/FormsPage';
 import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import AboutUsPage from 'pages/AboutUsPage/AboutUsPage';
+import HomePage from 'pages/HomePage/HomePage';
+import Page404 from 'pages/Page404/Page404';
+import Layout from 'components/Layout';
+import FormsPage from 'pages/FormsPage/FormsPage';
 
 export default class App extends Component {
   render() {

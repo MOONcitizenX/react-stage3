@@ -1,5 +1,5 @@
-import { FormFields } from 'pages/FormsPage';
 import React, { Component, createRef } from 'react';
+import { FormFields } from 'pages/FormsPage/FormsPage';
 
 interface ReportFormProps {
   onSubmit: (formFields: FormFields) => void;
