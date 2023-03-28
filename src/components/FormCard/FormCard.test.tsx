@@ -6,12 +6,13 @@ import FormCard from './FormCard';
 const cardDataTruthy = {
   firstName: 'John',
   lastName: 'Doe',
-  date: '2023-11-02',
+  accidentDate: new Date('2023-11-02'),
   location: 'Mars',
   isAlienContact: true,
-  humanInjuries: true,
-  file: 'https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/07/SolarFull_SeanDoran_2880FullwidthLede.jpg',
-};
+  humanInjuries: 'Yes',
+  evidence:
+    'https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/07/SolarFull_SeanDoran_2880FullwidthLede.jpg',
+} as const;
 
 const truthyText = {
   alienContactText: 'An alien contact',
@@ -29,7 +30,7 @@ describe('FormCard tests with truthy values', () => {
   });
 
   it('FormCard renders date', () => {
-    expect(screen.getByText(cardDataTruthy.date)).toBeInTheDocument();
+    expect(screen.getByText(cardDataTruthy.accidentDate.toLocaleDateString())).toBeInTheDocument();
   });
   it('FormCard renders location', () => {
     expect(screen.getByText(cardDataTruthy.location)).toBeInTheDocument();
@@ -42,15 +43,15 @@ describe('FormCard tests with truthy values', () => {
   });
   it('FormCard renders image text when image provided', () => {
     const img = screen.getByAltText(truthyText.imageAltText) as HTMLImageElement;
-    expect(img.src).toBe(cardDataTruthy.file);
+    expect(img.src).toBe(cardDataTruthy.evidence);
   });
 });
 
 const cardDataFalsy = {
   ...cardDataTruthy,
   isAlienContact: false,
-  humanInjuries: false,
-  file: '',
+  humanInjuries: 'No',
+  evidence: '',
 };
 
 const falsyText = {
