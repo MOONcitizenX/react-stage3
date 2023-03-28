@@ -1,0 +1,20 @@
+.card-wrapper {
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  border-radius: 10px;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+
+  font-size: 1.5rem;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}

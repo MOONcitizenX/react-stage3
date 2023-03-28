@@ -21,7 +21,7 @@
 
 .search-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  background: url('../assets/icons/x.svg') no-repeat 50% 50%;
+  background: url('assets/icons/x.svg') no-repeat 50% 50%;
   filter: opacity(0.5);
   height: 1rem;
   width: 1rem;
@@ -39,12 +39,4 @@
 
 .search-input:focus {
   outline: 1px solid var(--gray-color);
-}
-
-.search-input:focus ~ .search-title,
-.search-input:not(:focus):valid ~ .search-title {
-  top: -5px;
-  left: 1.3rem;
-  font-size: 1.5rem;
-  opacity: 1;
 }

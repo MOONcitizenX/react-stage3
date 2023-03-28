@@ -8,7 +8,7 @@ interface SearchBarState {
 const LSName = 'productSearchValue';
 
 export default class SearchBar extends Component<unknown, SearchBarState> {
-  state = {
+  state: SearchBarState = {
     searchValue: localStorage.getItem(LSName) || '',
   };
 

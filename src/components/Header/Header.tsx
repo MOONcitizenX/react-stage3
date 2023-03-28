@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import s from './Header.module.css';
-import { Routes, Route } from 'react-router-dom';
 
 export default class Header extends Component {
   render() {
@@ -9,10 +9,11 @@ export default class Header extends Component {
       <header className={s.header}>
         <div className="container">
           <nav className={s.nav}>
-            <h2>
+            <h2 className={s.navHeader}>
               <Routes>
                 <Route path="/" element={'Home'} />
                 <Route path="/about" element={'About Us'} />
+                <Route path="/forms" element={'Forms'} />
                 <Route path="*" element={'Not Found'} />
               </Routes>
             </h2>
@@ -25,6 +26,11 @@ export default class Header extends Component {
               <li className={s.navItem}>
                 <NavLink to="/about" className={s.navLink}>
                   About Us
+                </NavLink>
+              </li>
+              <li className={s.navItem}>
+                <NavLink to="/forms" className={s.navLink}>
+                  Forms
                 </NavLink>
               </li>
             </ul>

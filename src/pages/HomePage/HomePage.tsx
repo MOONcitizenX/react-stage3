@@ -1,8 +1,8 @@
-import Card from '../components/Card';
+import Card from 'components/Card/Card';
 import React, { Component } from 'react';
-import products from '../data/products.json';
+import products from 'data/products.json';
 import s from './HomePage.module.css';
-import SearchBar from '../components/SearchBar';
+import SearchBar from 'components/SearchBar/SearchBar';
 
 export default class HomePage extends Component {
   render() {
