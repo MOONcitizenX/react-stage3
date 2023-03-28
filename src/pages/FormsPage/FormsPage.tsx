@@ -7,11 +7,12 @@ import { SubmitHandler } from 'react-hook-form';
 import { FormDataWithId } from 'components/ReportForm/ReportForm.schema';
 
 const FormsPage = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState<boolean>();
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [reports, setReports] = useState<FormDataWithId[]>([]);
 
   const onSubmit: SubmitHandler<FormDataWithId> = (formData) => {
     setReports((prev) => [...prev, formData]);
+    setIsPopupOpen(true);
   };
 
   useEffect(() => {
