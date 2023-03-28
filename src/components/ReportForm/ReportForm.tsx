@@ -14,7 +14,6 @@ const ReportForm = ({ onSubmit }: ReportFormProps) => {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<FormDataWithId>({
     mode: 'onChange',
@@ -35,21 +34,39 @@ const ReportForm = ({ onSubmit }: ReportFormProps) => {
     <form onSubmit={handleSubmit(formOnSubmit)} className={s.reportForm} aria-label="form">
       <label htmlFor="firstName">
         <span>First name:</span>
-        <input {...register('firstName')} id="firstName" type="text" name="firstName" />
+        <input
+          {...register('firstName')}
+          id="firstName"
+          type="text"
+          name="firstName"
+          aria-invalid={errors.firstName ? 'true' : 'false'}
+        />
       </label>
       {errors.firstName && <p className={s.errorMessage}>{errors.firstName.message}</p>}
       <hr />
 
       <label htmlFor="lastName">
         <span>Last name:</span>
-        <input {...register('lastName')} id="lastName" type="text" name="lastName" />
+        <input
+          {...register('lastName')}
+          id="lastName"
+          type="text"
+          name="lastName"
+          aria-invalid={errors.lastName ? 'true' : 'false'}
+        />
       </label>
       {errors.lastName && <p className={s.errorMessage}>{errors.lastName.message}</p>}
       <hr />
 
       <label htmlFor="accidentDate">
         <span>Happened at:</span>
-        <input {...register('accidentDate')} id="accidentDate" type="date" name="accidentDate" />
+        <input
+          {...register('accidentDate')}
+          id="accidentDate"
+          type="date"
+          name="accidentDate"
+          aria-invalid={errors.accidentDate ? 'true' : 'false'}
+        />
       </label>
       {errors.accidentDate && <p className={s.errorMessage}>{errors.accidentDate.message}</p>}
       <hr />
@@ -57,7 +74,12 @@ const ReportForm = ({ onSubmit }: ReportFormProps) => {
       <label htmlFor="location">
         {' '}
         <span>Accident location:</span>
-        <select {...register('location')} name="location" id="location">
+        <select
+          {...register('location')}
+          name="location"
+          id="location"
+          aria-invalid={errors.location ? 'true' : 'false'}
+        >
           <option value="">Choose location</option>
           <option value="Earth">Earth</option>
           <option value="Mars">Mars</option>

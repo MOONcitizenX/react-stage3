@@ -1,8 +1,6 @@
 import * as yup from 'yup';
 import parse from 'date-fns/parse';
 
-const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
-
 export const schema = yup.object({
   firstName: yup
     .string()
