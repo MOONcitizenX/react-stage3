@@ -17,6 +17,8 @@ export default defineConfig({
       utils: path.resolve(__dirname, './src/utils'),
       constants: path.resolve(__dirname, './src/constants'),
       test: path.resolve(__dirname, './src/test'),
+      hooks: path.resolve(__dirname, './src/hooks'),
+      router: path.resolve(__dirname, './src/router'),
     },
   },
   server: {
@@ -32,6 +34,7 @@ export default defineConfig({
       all: true,
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
+      exclude: ['src/main.tsx', 'src/hooks/*'],
     },
     globals: true,
     environment: 'jsdom',

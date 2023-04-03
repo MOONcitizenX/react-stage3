@@ -38,6 +38,7 @@ ul {
   max-width: var(--mw);
   margin: 0 auto;
   padding: 10px;
+  position: relative;
 }
 
 .active {

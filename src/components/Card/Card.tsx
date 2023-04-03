@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './Card.module.css';
-import { Product } from 'data/products';
-import noImage from 'assets/images/default.jpg';
+import CardModal from 'components/CardModal/CardModal';
 
-interface CardProps {
-  product: Product;
+export interface Person {
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+  species: string[];
+  url: string;
 }
 
-const Card = ({ product }: CardProps) => {
+interface CardProps {
+  person: Person;
+}
+
+const Card = ({ person }: CardProps) => {
+  const [isFull, setIsFull] = useState<boolean>(false);
+
+  const handleModalSwitch = () => {
+    setIsFull((prev) => !prev);
+  };
+
   return (
-    <div className={s.cardWrapperTable} data-testid={'individualCard'}>
-      <img src={product.preview || noImage} alt={product.title} className={s.img} />
-      <img src={product.images[1] || noImage} alt={product.title} className={s.secondImg} />
-      <div className={s.cardInfo}>
-        <h3 className={s.title}>{product.title}</h3>
-        <p className={s.stock}>В наличии: {product.stock}</p>
-        <p className={s.price}>{product.price.toFixed(2)} BYN</p>
-      </div>
+    <div className={s.cardWrapperTable} data-testid={'individualCard'} onClick={handleModalSwitch}>
+      <h3 className={s.title}>Character: {person.name}</h3>
+      <p className={s.stock}>Gender: {person.gender}</p>
+      <p className={s.stock}>Height: {person.height}</p>
+      <p className={s.stock}>Mass: {person.mass}</p>
+      {isFull && <CardModal person={person} onClick={handleModalSwitch} />}
     </div>
   );
 };
