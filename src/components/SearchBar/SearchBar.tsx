@@ -1,51 +1,46 @@
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import s from './SearchBar.module.css';
-
-interface SearchBarState {
-  searchValue: string;
-}
 
 const LSName = 'productSearchValue';
 
-export default class SearchBar extends Component<unknown, SearchBarState> {
-  state: SearchBarState = {
-    searchValue: localStorage.getItem(LSName) || '',
-  };
-
-  handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    this.setState({ searchValue: value });
-  };
-
-  handleRefresh = () => {
-    localStorage.setItem(LSName, this.state.searchValue);
-  };
-
-  componentDidMount(): void {
-    const val = localStorage.getItem(LSName);
-    if (val) {
-      this.setState({ searchValue: val });
+const getInitialValue = () => {
+  let val = '';
+  try {
+    const LSValue = localStorage.getItem(LSName);
+    if (LSValue) {
+      val = LSValue;
     }
-    window.addEventListener('beforeunload', this.handleRefresh);
+  } catch (error) {
+    console.error(error);
   }
 
-  componentWillUnmount(): void {
-    localStorage.setItem(LSName, this.state.searchValue);
-    window.removeEventListener('beforeunload', this.handleRefresh);
-  }
+  return val;
+};
 
-  render() {
-    return (
-      <div className={s.searchWrapper}>
-        <input
-          type="search"
-          className={s.searchInput}
-          value={this.state.searchValue}
-          onChange={this.handleSearchChange}
-          required
-        />
-        <span className={s.searchTitle}>Search</span>
-      </div>
-    );
-  }
-}
+const SearchBar = () => {
+  const [searchValue, setSearchValue] = useState<string>(() => getInitialValue());
+
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSearchValue(value);
+  };
+
+  useEffect(() => {
+    return () => localStorage.setItem(LSName, searchValue);
+  }, [searchValue]);
+
+  return (
+    <div className={s.searchWrapper}>
+      <input
+        type="search"
+        className={s.searchInput}
+        value={searchValue}
+        onChange={handleSearchChange}
+        required
+      />
+      <span className={s.searchTitle}>Search</span>
+    </div>
+  );
+};
+
+export default SearchBar;

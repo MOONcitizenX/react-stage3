@@ -1,62 +1,49 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import FormCard from 'components/FormCard/FormCard';
 import Popup from 'components/Popup/Popup';
 import ReportForm from 'components/ReportForm/ReportForm';
 import s from './FormsPage.module.css';
+import { SubmitHandler } from 'react-hook-form';
+import { FormDataWithId } from 'components/ReportForm/ReportForm.schema';
 
-export interface FormFields {
-  id: string;
-  firstName: string;
-  lastName: string;
-  date: string;
-  location: string;
-  isAlienContact: boolean;
-  humanInjuries: boolean;
-  file: string;
-}
+const FormsPage = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+  const [reports, setReports] = useState<FormDataWithId[]>([]);
 
-interface FormsPageState {
-  isPopupOpen: boolean;
-  reports: FormFields[];
-}
-
-export default class FormsPage extends Component<unknown, FormsPageState> {
-  state: FormsPageState = {
-    isPopupOpen: false,
-    reports: [],
+  const onSubmit: SubmitHandler<FormDataWithId> = (formData) => {
+    setReports((prev) => [...prev, formData]);
+    setIsPopupOpen(true);
   };
 
-  onSubmit = (formData: FormFields) => {
-    console.table(formData);
-
-    this.setState((prev) => ({ reports: [...prev.reports, formData], isPopupOpen: true }));
-  };
-
-  componentDidUpdate() {
-    setTimeout(() => {
-      if (this.state.isPopupOpen) {
-        this.setState({ isPopupOpen: false });
+  useEffect(() => {
+    const timer: NodeJS.Timeout = setTimeout(() => {
+      if (isPopupOpen) {
+        setIsPopupOpen(false);
       }
     }, 3000);
-  }
 
-  render() {
-    return (
-      <div>
-        <ReportForm onSubmit={this.onSubmit} />
-        {this.state.isPopupOpen && (
-          <Popup
-            text="Your report has been successfully submitted"
-            onClick={() => this.setState({ isPopupOpen: false })}
-          />
-        )}
-        <section className={s.cardsWrapper}>
-          {this.state.reports.map((report) => {
-            const { id, ...props } = report;
-            return <FormCard key={id} {...props} />;
-          })}
-        </section>
-      </div>
-    );
-  }
-}
+    return () => {
+      clearInterval(timer);
+    };
+  }, [isPopupOpen]);
+
+  return (
+    <div>
+      <ReportForm onSubmit={onSubmit} />
+      {isPopupOpen && (
+        <Popup
+          text="Your report has been successfully submitted"
+          onClick={() => setIsPopupOpen(false)}
+        />
+      )}
+      <section className={s.cardsWrapper}>
+        {reports.map((report) => {
+          const { id, ...props } = report;
+          return <FormCard key={id} {...props} />;
+        })}
+      </section>
+    </div>
+  );
+};
+
+export default FormsPage;

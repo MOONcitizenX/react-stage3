@@ -1,20 +1,20 @@
 import Card from 'components/Card/Card';
-import React, { Component } from 'react';
+import React from 'react';
 import products from 'data/products.json';
 import s from './HomePage.module.css';
 import SearchBar from 'components/SearchBar/SearchBar';
 
-export default class HomePage extends Component {
-  render() {
-    return (
-      <>
-        <SearchBar />
-        <div className={s.productsWrapper}>
-          {products.map((prod) => (
-            <Card key={prod.id} product={prod} />
-          ))}
-        </div>
-      </>
-    );
-  }
-}
+const HomePage = () => {
+  return (
+    <>
+      <SearchBar />
+      <div className={s.productsWrapper}>
+        {products.map((prod) => (
+          <Card key={prod.id} product={prod} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default HomePage;
