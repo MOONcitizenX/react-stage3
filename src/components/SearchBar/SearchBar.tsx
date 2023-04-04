@@ -26,7 +26,7 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem(LSName, searchValue);
+    return () => localStorage.setItem(LSName, searchValue);
   }, [searchValue]);
 
   return (
