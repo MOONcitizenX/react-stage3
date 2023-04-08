@@ -3,16 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import HomePage from 'pages/HomePage/HomePage';
-import products from 'data/products.json';
-
-describe('CardList tests', () => {
-  beforeEach(() => {
-    render(<HomePage />);
-  });
-  it('should render all cards', () => {
-    expect(screen.getAllByTestId('individualCard')).toHaveLength(products.length);
-  });
-});
 
 export class LocalStorageMock {
   store: Record<string, string>;
@@ -54,16 +44,16 @@ describe('searchBar', () => {
     vi.unstubAllGlobals();
   });
   it('writes value to input', async () => {
-    const input = screen.getByRole('searchbox');
+    const input = screen.getByRole('searchbox') as HTMLInputElement;
     await user.type(input, testText);
-    expect(input).toHaveValue(testText);
+    expect(input.value).toStrictEqual(testText);
   });
 });
 
 describe('rerender', () => {
   const user = userEvent.setup();
   const testText = 'test data';
-  const LSKey = 'productSearchValue';
+  const LSKey = 'personSearchValue';
 
   beforeEach(() => {
     vi.stubGlobal('localStorage', new LocalStorageMock());
@@ -75,14 +65,14 @@ describe('rerender', () => {
 
   it('writes value to localStorage on unMount', async () => {
     const { unmount } = render(<HomePage />);
-    const input = screen.getByRole('searchbox');
+    const input = screen.getByRole('searchbox') as HTMLInputElement;
     await user.type(input, testText);
     unmount();
-    expect(localStorage.getItem(LSKey)).toBe(testText);
+    expect(localStorage.getItem(LSKey)).toStrictEqual(testText);
   });
   it('writes value to localStorage on refresh', async () => {
     render(<HomePage />);
-    const input = screen.getByRole('searchbox');
+    const input = screen.getByRole('searchbox') as HTMLInputElement;
     await user.type(input, testText);
     window.dispatchEvent(new Event('beforeunload'));
     expect(localStorage.getItem(LSKey)).toBe(testText);
@@ -90,7 +80,7 @@ describe('rerender', () => {
   it('takes value from localStorage', async () => {
     localStorage.setItem(LSKey, testText);
     render(<HomePage />);
-    const input = screen.getByRole('searchbox');
-    expect(input).toHaveValue(testText);
+    const input = screen.getByRole('searchbox') as HTMLInputElement;
+    expect(input.value).toStrictEqual(testText);
   });
 });

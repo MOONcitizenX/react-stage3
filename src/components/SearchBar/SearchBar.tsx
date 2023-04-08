@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import s from './SearchBar.module.css';
 
-const LSName = 'productSearchValue';
+const LSName = 'personSearchValue';
 
 const getInitialValue = () => {
   let val = '';
@@ -17,12 +17,21 @@ const getInitialValue = () => {
   return val;
 };
 
-const SearchBar = () => {
+interface SearchBarProps {
+  onInput: (input: string) => void;
+}
+
+const SearchBar = ({ onInput }: SearchBarProps) => {
   const [searchValue, setSearchValue] = useState<string>(() => getInitialValue());
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchValue(value);
+  };
+
+  const handleSearchInput = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onInput(searchValue);
   };
 
   useEffect(() => {
@@ -31,14 +40,15 @@ const SearchBar = () => {
 
   return (
     <div className={s.searchWrapper}>
-      <input
-        type="search"
-        className={s.searchInput}
-        value={searchValue}
-        onChange={handleSearchChange}
-        required
-      />
-      <span className={s.searchTitle}>Search</span>
+      <form onSubmit={handleSearchInput}>
+        <input
+          type="search"
+          placeholder="Search"
+          className={s.searchInput}
+          value={searchValue}
+          onChange={handleSearchChange}
+        />
+      </form>
     </div>
   );
 };

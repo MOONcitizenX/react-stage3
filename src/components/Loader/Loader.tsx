@@ -1,0 +1,15 @@
+import React from 'react';
+import s from './Loader.module.css';
+
+export const Loader = () => {
+  return (
+    <div className={s.wrapper}>
+      <div className={s.circle}></div>
+      <div className={s.circle}></div>
+      <div className={s.circle}></div>
+      <div className={s.shadow}></div>
+      <div className={s.shadow}></div>
+      <div className={s.shadow}></div>
+    </div>
+  );
+};
