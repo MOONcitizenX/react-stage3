@@ -23,6 +23,7 @@ const HomePage = () => {
 
   return (
     <>
+      <h1>Пожалуйста, проверьте чуть позже! Спасибо!</h1>
       <SearchBar onInput={handleInput} />
       {loading && <Loader />}
       <div className={s.productsWrapper}>
