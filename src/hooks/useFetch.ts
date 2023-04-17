@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useRef } from 'react';
+import { useAppDispatch } from './reduxHooks';
 
 interface State<T> {
   data?: T;
@@ -14,6 +15,8 @@ type Action<T> =
   | { type: 'error'; payload: Error };
 
 function useFetch<T = unknown>(url?: string): State<T> {
+  const globalDispatch = useAppDispatch();
+
   const cache = useRef<Cache<T>>({});
 
   const cancelRequest = useRef<boolean>(false);
@@ -75,7 +78,7 @@ function useFetch<T = unknown>(url?: string): State<T> {
     return () => {
       cancelRequest.current = true;
     };
-  }, [url]);
+  }, [globalDispatch, url]);
 
   return state;
 }
