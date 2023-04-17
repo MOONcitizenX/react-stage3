@@ -5,13 +5,16 @@ import ReportForm from 'components/ReportForm/ReportForm';
 import s from './FormsPage.module.css';
 import { SubmitHandler } from 'react-hook-form';
 import { FormDataWithId } from 'components/ReportForm/ReportForm.schema';
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
+import { addCard } from 'store/reportFormSlice';
 
 const FormsPage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-  const [reports, setReports] = useState<FormDataWithId[]>([]);
+  const { forms } = useAppSelector((state) => state.reportForms);
+  const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<FormDataWithId> = (formData) => {
-    setReports((prev) => [...prev, formData]);
+    dispatch(addCard(formData));
     setIsPopupOpen(true);
   };
 
@@ -37,8 +40,8 @@ const FormsPage = () => {
         />
       )}
       <section className={s.cardsWrapper}>
-        {reports.map((report) => {
-          const { id, ...props } = report;
+        {forms.map((form) => {
+          const { id, ...props } = form;
           return <FormCard key={id} {...props} />;
         })}
       </section>

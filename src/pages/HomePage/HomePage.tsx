@@ -1,12 +1,13 @@
+import React from 'react';
 import Card, { Person } from 'components/Card/Card';
-import React, { useState } from 'react';
 import s from './HomePage.module.css';
 import SearchBar from 'components/SearchBar/SearchBar';
-import useFetch from 'hooks/useFetch';
 import { Loader } from 'components/Loader/Loader';
-import { API_ROOT } from 'constants/constants';
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
+import { changeSearchText } from 'store/searchTextSlice';
+import { useGetPersonByNameQuery } from 'API/swapi';
 
-interface Data {
+export interface Data {
   count: number;
   next: string;
   previous: null | string;
@@ -14,20 +15,21 @@ interface Data {
 }
 
 const HomePage = () => {
-  const [search, setSearch] = useState<string>(API_ROOT);
-  const { data, loading, error } = useFetch<Data>(search);
+  const { searchText } = useAppSelector((state) => state.searchText);
+  const dispatch = useAppDispatch();
+  const { isError, isLoading, data } = useGetPersonByNameQuery(searchText);
 
   const handleInput = (input: string) => {
-    setSearch(`${API_ROOT}?search=${input.trim().toLowerCase()}`);
+    dispatch(changeSearchText(input));
   };
 
   return (
     <>
       <SearchBar onInput={handleInput} />
-      {loading && <Loader />}
+      {isLoading && <Loader />}
       <div className={s.productsWrapper}>
         {data && data?.results.map((person) => <Card key={person.name} person={person} />)}
-        {error && <p>Something went wrong 😥</p>}
+        {isError && <p>Something went wrong 😥</p>}
       </div>
     </>
   );

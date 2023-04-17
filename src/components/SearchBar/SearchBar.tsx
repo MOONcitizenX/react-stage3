@@ -1,42 +1,31 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 import s from './SearchBar.module.css';
-
-const LSName = 'personSearchValue';
-
-const getInitialValue = () => {
-  let val = '';
-  try {
-    const LSValue = localStorage.getItem(LSName);
-    if (LSValue) {
-      val = LSValue;
-    }
-  } catch (error) {
-    console.error(error);
-  }
-
-  return val;
-};
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
+import { changeSearchText } from 'store/searchTextSlice';
 
 interface SearchBarProps {
   onInput: (input: string) => void;
 }
 
+const LSName = 'personSearchValue';
+
 const SearchBar = ({ onInput }: SearchBarProps) => {
-  const [searchValue, setSearchValue] = useState<string>(() => getInitialValue());
+  const { searchText } = useAppSelector((state) => state.searchText);
+  const dispatch = useAppDispatch();
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setSearchValue(value);
+    dispatch(changeSearchText(value));
   };
 
   const handleSearchInput = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onInput(searchValue);
+    onInput(searchText);
   };
 
   useEffect(() => {
-    localStorage.setItem(LSName, searchValue);
-  }, [searchValue]);
+    localStorage.setItem(LSName, searchText);
+  }, [searchText]);
 
   return (
     <div className={s.searchWrapper}>
@@ -45,7 +34,7 @@ const SearchBar = ({ onInput }: SearchBarProps) => {
           type="search"
           placeholder="Search"
           className={s.searchInput}
-          value={searchValue}
+          value={searchText}
           onChange={handleSearchChange}
         />
       </form>
